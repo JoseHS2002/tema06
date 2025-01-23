@@ -1,5 +1,7 @@
 package com.josehs.tema06;
 
+import java.util.Random;
+
 public class Jugador {
     private String nombre;
     private float portero;
@@ -21,5 +23,25 @@ public class Jugador {
 
     public Jugador(String nombre){
         this(nombre, 50, 50, 50, 50, 50, 50);
+    }
+
+    Jugador futbolista1 = new Jugador("Aitana Bonmatí", 32, 82, 87, 80, 82, 95);
+    Jugador futbolista2 = new Jugador("Pablo Gavi", 32, 82, 87, 80, 82, 95);
+    Jugador futbolista3 = new Jugador("Ana García");
+    Jugador futbolista4 = new Jugador("Rubén Prieto");
+
+    public void crearFutbolista() {
+        Jugador futbolista1 = new Jugador("Alexia Putellas", 29, 81, 80, 83, 84, 90);
+    }
+
+    public void entrenarPase() {
+        Random random = new Random();
+        float mejora = random.nextFloat();
+        estadoForma += mejora;
+        int num = random.nextInt(101);
+        if (num >= 100-7) {
+            mejora = random.nextFloat();
+            pase += mejora;
+        }
     }
 }

@@ -7,7 +7,7 @@ public class GestionAlumnos {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.println(mostrarMenu());
+        System.out.println();
     }
 
     private static void mostrarMenu() {
@@ -60,7 +60,5 @@ public class GestionAlumnos {
         System.out.println("--------------------");
         System.out.println("0. Volver al menú principal.");
         System.out.print("Seleccione una opción: ");
-        opcion = scanner.nextInt();
-        scanner.nextLine();
     }
 }

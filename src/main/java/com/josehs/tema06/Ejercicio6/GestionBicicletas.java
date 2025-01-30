@@ -1,14 +1,12 @@
 package com.josehs.tema06.Ejercicio6;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GestionBicicletas {
-    private static ArrayList<Bicicleta> bicicletas = new ArrayList<>();
+
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int opcion;
             System.out.println("\n*************************");
             System.out.println("** GESTIÓN DE BICICLETAS **");
             System.out.println("*************************");
@@ -49,7 +47,6 @@ public class GestionBicicletas {
     }
 
     private static void consultarBicicleta() {
-        int opcion;
             System.out.println("\n***********************");
             System.out.println("** CONSULTA BICICLETA **");
             System.out.println("***********************");
@@ -58,8 +55,6 @@ public class GestionBicicletas {
             System.out.println("3.- Consultar por modelo …");
             System.out.println("---------------------------------");
             System.out.println("0.- Volver al menú principal.");
-            opcion = scanner.nextInt();
-            scanner.nextLine(); // Limpiar el buffer
 
     }
 

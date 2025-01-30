@@ -49,7 +49,6 @@ public class GestionAlumnos {
     }
 
     private static void consultas() {
-        int opcion;
 
         System.out.println("***************");
         System.out.println("** CONSULTAS **");

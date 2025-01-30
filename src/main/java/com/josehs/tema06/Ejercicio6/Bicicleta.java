@@ -8,18 +8,18 @@ public class Bicicleta {
     private String marca;
     private String modelo;
     private double peso;
-    private double tamanoRuedas;
+    private double tamanyoRuedas;
     private boolean tieneMotor;
     private String fechaFabricacion;
     private double precio;
     private int existencias;
 
-    public Bicicleta(String referencia, String marca, String modelo, double peso, double tamanoRuedas, boolean tieneMotor, String fechaFabricacion, double precio, int existencias) {
+    public Bicicleta(String referencia, String marca, String modelo, double peso, double tamanyoRuedas, boolean tieneMotor, String fechaFabricacion, double precio, int existencias) {
         this.referencia = referencia;
         this.marca = marca;
         this.modelo = modelo;
         this.peso = peso;
-        this.tamanoRuedas = tamanoRuedas;
+        this.tamanyoRuedas = tamanyoRuedas;
         this.tieneMotor = tieneMotor;
         this.fechaFabricacion = fechaFabricacion;
         this.precio = precio;
@@ -38,8 +38,8 @@ public class Bicicleta {
     public double getPeso() {
         return peso;
     }
-    public double getTamanoRuedas() {
-        return tamanoRuedas;
+    public double getTamanyoRuedas() {
+        return tamanyoRuedas;
     }
     public boolean tieneMotor() {
         return tieneMotor;

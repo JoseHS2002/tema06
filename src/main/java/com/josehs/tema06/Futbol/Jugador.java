@@ -1,4 +1,4 @@
-package com.josehs.tema06;
+package com.josehs.tema06.Futbol;
 
 import java.util.Random;
 
@@ -44,4 +44,26 @@ public class Jugador {
             pase += mejora;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Jugador{" +
+                "portero=" + portero +
+                ", defensa=" + defensa +
+                ", pase=" + pase +
+                ", regate=" + regate +
+                ", tiro=" + tiro +
+                ", estadoForma=" + estadoForma +
+                '}';
+    }
+
+    public float getPase() {
+        return pase;
+    }
+    /*
+    public float setPase(float pase) {
+        this.pase = pase;
+    }
+*/
+
 }

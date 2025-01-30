@@ -10,6 +10,7 @@ public class Alumno {
     String apellidos;
     Date fechaNacimiento;
     String grupo;
+    String telefono;
 
     public Alumno(int nia, String nombre, String apellidos, Date fechaNacimiento, String grupo) {
         this.nia = nia;

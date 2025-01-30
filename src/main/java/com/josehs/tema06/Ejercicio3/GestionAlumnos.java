@@ -1,25 +1,34 @@
 package com.josehs.tema06.Ejercicio3;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Date;
 import java.util.Scanner;
 
 public class GestionAlumnos {
-    private static Scanner scanner = new Scanner(System.in);
+    public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.println();
-    }
-
-    private static void mostrarMenu() {
-        System.out.println("*********************");
-        System.out.println("** GESTIÓN ALUMNOS **");
-        System.out.println("*********************");
-        System.out.println("1. Nuevo alumno …");
-        System.out.println("2. Baja de alumno …");
-        System.out.println("3. Consultas …");
-        System.out.println("------------------------------");
-        System.out.println("0. Salir.");
-        System.out.print("Seleccione una opción: ");
+        int n;
+        do {
+            System.out.println("*********************");
+            System.out.println("** GESTIÓN ALUMNOS **");
+            System.out.println("*********************");
+            System.out.println("1. Nuevo alumno …");
+            System.out.println("2. Baja de alumno …");
+            System.out.println("3. Consultas …");
+            System.out.println("------------------------------");
+            System.out.println("0. Salir.");
+            System.out.print("Seleccione una opción: ");
+            n=scanner.nextInt();
+            if(n==1){
+                nuevoAlumno();
+            }else if(n==2){
+                bajaAlumno();
+            } else if (n==3) {
+                consultas();
+            }
+        } while (n>=0);
     }
 
     private static void nuevoAlumno() {
@@ -49,7 +58,8 @@ public class GestionAlumnos {
     }
 
     private static void consultas() {
-
+        int n;
+        do {
         System.out.println("***************");
         System.out.println("** CONSULTAS **");
         System.out.println("***************");
@@ -60,5 +70,23 @@ public class GestionAlumnos {
         System.out.println("--------------------");
         System.out.println("0. Volver al menú principal.");
         System.out.print("Seleccione una opción: ");
+            n=scanner.nextInt();
+            if(n==1){
+                // Por grupo
+            }else if(n==2){
+                // calcularEdad();
+            }else if (n==3) {
+                // Por NIA
+            }else if (n==4) {
+                // Por apellido
+            }
+        } while (n>=0);
     }
+
+    public static int calcularEdad(LocalDate fechaNacimiento) {
+        LocalDate hoy = LocalDate.now();
+        Period periodo = Period.between(fechaNacimiento, hoy);
+        return periodo.getYears();
+    }
+
 }

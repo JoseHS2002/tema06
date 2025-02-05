@@ -34,7 +34,6 @@ public class GestionAlumnos {
     private static void nuevoAlumno() {
         System.out.print("Dime el NIA: ");
         int nia = scanner.nextInt();
-
         System.out.print("Dime el nombre: ");
         String nombre = scanner.nextLine();
         System.out.print("Dime los apellidos: ");
@@ -42,12 +41,10 @@ public class GestionAlumnos {
         System.out.print("Dime la fecha de nacimiento (dd/mm/yyyy): ");
         String fecha = scanner.nextLine();
         Date fechaNacimiento = new Date();
-
         System.out.print("Dime el grupo: ");
         String grupo = scanner.nextLine();
         System.out.print("Dime el teléfono de contacto: ");
         String telefono = scanner.nextLine();
-
         System.out.println("Alumno agregado con éxito.");
     }
 

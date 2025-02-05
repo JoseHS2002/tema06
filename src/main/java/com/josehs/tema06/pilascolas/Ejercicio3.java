@@ -9,8 +9,10 @@ public class Ejercicio3 {
 
         if (esValido(codigo)) {
             System.out.println("El código fuente es válido.");
+            System.out.println(codigo);
         } else {
             System.out.println("El código fuente es inválido.");
+            System.out.println(codigo);
         }
     }
 

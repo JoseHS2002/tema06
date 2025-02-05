@@ -27,17 +27,17 @@ public class Ejercicio3 {
                     pila.push(caracter);
                     break;
                 case ')':
-                    if (pila.pop() != '(') {
+                    if (pila.isEmpty() || pila.pop() != '(') {
                         return false;
                     }
                     break;
                 case '}':
-                    if (pila.pop() != '{') {
+                    if (pila.isEmpty || pila.pop() != '{') {
                         return false;
                     }
                     break;
                 case ']':
-                    if (pila.pop() != '[') {
+                    if (pila.isEmpty || pila.pop() != '[') {
                         return false;
                     }
                     break;

@@ -5,7 +5,6 @@ import com.josehs.tema06.pilascolas.Pila;
 public class Ejercicio3 {
     public static void main(String[] args) {
     
-        System.out.println("Introduce el código fuente:");
         String codigo = "public class texto{public class void main(String[ args){}}";
 
         if (esValido(codigo)) {

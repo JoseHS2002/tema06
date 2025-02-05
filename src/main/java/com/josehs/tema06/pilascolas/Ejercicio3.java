@@ -1,13 +1,12 @@
 package com.josehs.tema06.pilascolas;
 
-import java.util.Scanner;
 import com.josehs.tema06.pilascolas.Pila;
 
 public class Ejercicio3 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    
         System.out.println("Introduce el código fuente:");
-        String codigo = scanner.nextLine();
+        String codigo = "public class texto{public class void main(String[ args){}}";
 
         if (esValido(codigo)) {
             System.out.println("El código fuente es válido.");

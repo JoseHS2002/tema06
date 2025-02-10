@@ -1,7 +1,13 @@
 package com.josehs.tema06.pilascolas;
 
 import com.josehs.tema06.pilascolas.DynamicArray;
+import com.josehs.tema06.pilascolas.Hospital.Paciente;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Cola {
     private static final int INITIAL_CAPACITY = 10;

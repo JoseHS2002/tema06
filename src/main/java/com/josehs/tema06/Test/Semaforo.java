@@ -1,4 +1,4 @@
-package com.josehs.tema06;
+package com.josehs.tema06.Test;
 
 public class Semaforo {
     public enum Color {

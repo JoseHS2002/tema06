@@ -1,47 +1,55 @@
 package com.josehs.tema06.pilascolas.Hospital;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Principal {
+    public static Scanner scanner = new Scanner(System.in);
+    public static Random random = new Random();
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Hospital hospital = new Hospital();
+        
+        List<Medico> medicos = new ArrayList<>();
+        
+        Hospital<Paciente> hospital = new Hospital<>();
 
-        while (true) {
+        int opcion;
+        do {
             System.out.println("=== HOSPITAL ===");
             System.out.println("1. Añadir paciente");
             System.out.println("2. Atender siguiente paciente");
             System.out.println("3. Mostrar estado de las colas");
             System.out.println("4. Salir");
-            System.out.print("Seleccione una opción: ");
-
-            int opcion = scanner.nextInt();
+            System.out.print("Seleccione una opcion: ");
+            opcion = scanner.nextInt();
+            scanner.nextLine();
 
             switch (opcion) {
                 case 1:
-                    System.out.println("Introduce el nombre del paciente:");
-                    String nombrePaciente = scanner.next();
-                    System.out.println("Introduce el SIP del paciente:");
-                    String SIPPaciente = scanner.next();
-                    hospital.agregarPaciente(new Paciente(nombrePaciente, SIPPaciente));
+                    hospital.mostrarEstadoColas();
+                    System.out.print("Seleccione la consulta a la que añadir el paciente: ");
+
+                    System.out.print("Introduzca el nombre del paciente: ");
+
+                    System.out.print("Introduzca el SIP del paciente: ");
                     break;
                 case 2:
-                    hospital.atenderSiguientePaciente();
+                    hospital.mostrarEstadoColas();
+                    System.out.print("Seleccione la consulta a la que atender: ");
+
                     break;
                 case 3:
-                    hospital.mostrarEstadoColas();
+
                     break;
                 case 4:
                     System.out.println("Saliendo del programa...");
-                    System.exit(0);
+                    break;
                 default:
-                    System.out.println("Opción inválida.");
+                    System.out.println("Opcion invalida.");
             }
-        }
+        } while (opcion != 4);
     }
 
 }
+

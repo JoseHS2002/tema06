@@ -6,13 +6,9 @@ import java.util.Random;
 public class DynamicArray {
 
     private static final double ERROR = Double.NEGATIVE_INFINITY;
-
     private final static int DEFAULT_CAPACITY = 10;
-
     private final static float GROW_FACTOR = 2f;
-
     private double[] data;
-
     private int size;
 
     public static void main(String[] args) {

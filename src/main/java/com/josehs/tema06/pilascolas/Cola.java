@@ -1,13 +1,6 @@
 package com.josehs.tema06.pilascolas;
 
-import com.josehs.tema06.pilascolas.DynamicArray;
-import com.josehs.tema06.pilascolas.Hospital.Paciente;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
 
 public class Cola {
     private static final int INITIAL_CAPACITY = 10;
@@ -32,13 +25,13 @@ public class Cola {
     public boolean add(double value) {
         return data.add(value);
     }
-
+/*
     public double remove() {
         if (isEmpty())
             return Double.POSITIVE_INFINITY;
         return data.remove(0);
     }
-
+*/
     public double peek() {
         if (isEmpty())
             return Double.POSITIVE_INFINITY;

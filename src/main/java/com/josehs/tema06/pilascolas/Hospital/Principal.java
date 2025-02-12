@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-
 public class Principal {
     public static Scanner scanner = new Scanner(System.in);
     public static Random random = new Random();
@@ -59,7 +58,7 @@ public class Principal {
                     System.out.print("Seleccione la consulta a la que atender: ");
                     int consultaElegida2 = scanner.nextInt() - 1;
                     scanner.nextLine();
-                    Paciente pacienteAtendido = hospital.consultas.get(consultaElegida2).atenderSiguientePaciente();
+                    Paciente pacienteAtendido = hospital.consultas.get(consultaElegida2).atenderSiguientePaciente(paciente);
                     if (pacienteAtendido != null) {
                         System.out.println("Paciente atendido: " + pacienteAtendido);
                     } else {

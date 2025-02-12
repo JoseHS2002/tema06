@@ -1,10 +1,7 @@
 package com.josehs.tema06.pilascolas.Hospital;
 
-import com.josehs.tema06.pilascolas.Hospital.Cola;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
 
 class Hospital<T> {
     List<ColaConsulta<T>> consultas;

@@ -1,4 +1,4 @@
-package com.josehs.tema06.pilascolas.Hospital;
+package com.josehs.tema06.Generics;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -10,11 +10,11 @@ class ColaConsulta<T> {
     }
 
     public void agregarPaciente(T paciente) {
-        colaPacientes.ponerElementos(paciente);
+        return colaPacientes.ponerElementos(paciente);
     }
 
-    public T atenderSiguientePaciente() {
-        return colaPacientes.quitarElementos();
+    public void atenderSiguientePaciente(T paciente) {
+        return colaPacientes.quitarElementos(paciente);
     }
 
     @Override

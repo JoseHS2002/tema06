@@ -43,28 +43,28 @@ public class Principal {
                 case 1:
                     hospital.mostrarEstadoColas();
                     System.out.println("Seleccione la consulta a la que añadir el paciente: ");
-                    int consultaElegida = scanner.nextInt();
+                    int elegirConsulta = scanner.nextInt();
                     scanner.nextLine();
                     System.out.println("Introduzca el nombre del paciente: ");
                     String nombrePaciente = scanner.nextLine();
                     System.out.println("Introduzca el SIP del paciente: ");
                     String SIP = scanner.nextLine();
-                    hospital.consultas.get(consultaElegida).agregarPaciente(new Paciente(nombrePaciente, SIP));
+                    hospital.consultas.get(elegirConsulta).agregarPaciente(new Paciente(nombrePaciente, SIP));
                     System.out.println("Paciente añadido a la cola.");
-                    System.out.println("Cola seleccionada: " + hospital.consultas.get(consultaElegida));
+                    System.out.println("Cola seleccionada: " + hospital.consultas.get(elegirConsulta));
                     break;
                 case 2:
                     hospital.mostrarEstadoColas();
                     System.out.print("Seleccione la consulta a la que atender: ");
-                    int consultaElegida2 = scanner.nextInt() - 1;
+                    int atenderConsulta = scanner.nextInt() - 1;
                     scanner.nextLine();
-                    Paciente pacienteAtendido = hospital.consultas.get(consultaElegida2).atenderSiguientePaciente(paciente);
+                    Paciente pacienteAtendido = hospital.consultas.get(atenderConsulta).atenderSiguientePaciente(paciente);
                     if (pacienteAtendido != null) {
                         System.out.println("Paciente atendido: " + pacienteAtendido);
                     } else {
                         System.out.println("La cola está vacía.");
                     }
-                    System.out.println("Cola seleccionada: " + hospital.consultas.get(consultaElegida2));
+                    System.out.println("Cola seleccionada: " + hospital.consultas.get(atenderConsulta));
                     break;
                 case 3:
                     hospital.mostrarEstadoColas();

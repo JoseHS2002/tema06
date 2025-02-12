@@ -9,6 +9,14 @@ class ColaConsulta<T> {
         this.colaPacientes = new Cola<>();
     }
 
+    public void agregarPaciente(T paciente) {
+        colaPacientes.ponerElementos(paciente);
+    }
+
+    public T atenderSiguientePaciente() {
+        return colaPacientes.quitarElementos();
+    }
+
     @Override
     public String toString() {
         return "ColaConsulta{" +

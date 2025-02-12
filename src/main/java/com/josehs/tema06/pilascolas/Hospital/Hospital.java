@@ -7,12 +7,14 @@ import java.util.Random;
 import java.util.Scanner;
 
 class Hospital<T> {
-    public Scanner scanner = new Scanner(System.in);
-    public Random random = new Random();
     List<ColaConsulta<T>> consultas;
 
     public Hospital() {
         consultas = new ArrayList<>();
+    }
+
+    public void agregarConsulta(ColaConsulta<T> colaConsulta) {
+        consultas.add(colaConsulta);
     }
 
     public void mostrarEstadoColas() {

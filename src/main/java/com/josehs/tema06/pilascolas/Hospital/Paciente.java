@@ -2,7 +2,6 @@ package com.josehs.tema06.pilascolas.Hospital;
 
 import java.time.LocalDateTime;
 
-
 class Paciente {
     String nombre;
     String SIP;

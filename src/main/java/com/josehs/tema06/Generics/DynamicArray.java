@@ -13,18 +13,18 @@ public class DynamicArray<T> {
 
     public static void main(String[] args) {
         Random random = new Random();
-        DynamicArray dynamicArray = new DynamicArray(10);
+        DynamicArray<Double> dynamicArray = new DynamicArray<>(10);
         for (int i = 0; i < 10; i++) {
             dynamicArray.add(random.nextDouble());
         }
         System.out.println(dynamicArray.toString());
-        dynamicArray.add(1);
+        dynamicArray.add(1.0);
         System.out.println(dynamicArray.toString());
-        dynamicArray.remove(1);
+        dynamicArray.remove(1.0);
         System.out.println(dynamicArray.toString());
 
         System.out.println(dynamicArray.get(3));
-        dynamicArray.add(3, 10);
+        dynamicArray.add(3, 10.0);
         System.out.println(dynamicArray.get(3));
         System.out.println(dynamicArray.size);
     }
@@ -34,17 +34,17 @@ public class DynamicArray<T> {
     }
 
     public DynamicArray(int capacity) {
-        data = new double[capacity];
+        data = (T[]) new Object[capacity];
         size = 0;
     }
 
-    public double get(int index) {
-        if (index >= size || index < 0 )
-            return ERROR;
+    public T get(int index) {
+        if (index >= size || index < 0)
+            return null;
         return data[index];
     }
 
-    public boolean add(double value) {
+    public boolean add(T value) {
         if (isFull())
             expand();
         data[size] = value;
@@ -52,12 +52,18 @@ public class DynamicArray<T> {
         return true;
     }
 
-    public boolean remove(double value) {
-        if (isFull())
-            expand();
-        data[size] = value;
-        size--;
-        return true;
+    public boolean remove(T value) {
+        for (int i = 0; i < size; i++) {
+            if (data[i].equals(value)) {
+                for (int j = i; j < size - 1; j++) {
+                    data[j] = data[j + 1];
+                }
+                data[size - 1] = null;
+                size--;
+                return true;
+            }
+        }
+        return false;
     }
 
     private void moveToRight(int index) {
@@ -67,7 +73,7 @@ public class DynamicArray<T> {
         size++;
     }
 
-    public boolean add(int index, double value) {
+    public boolean add(int index, T value) {
         if (index >= size || index < 0)
             return false;
         if (isFull())
@@ -78,14 +84,16 @@ public class DynamicArray<T> {
     }
 
     private void expand() {
-        double[] copy = new double[Math.round(data.length * GROW_FACTOR)];
+        T[] copy = (T[]) new Object[Math.round(data.length * GROW_FACTOR)];
         for (int i = 0; i < size; i++) {
             copy[i] = data[i];
         }
         data = copy;
     }
 
-    public int size() {return size;}
+    public int size() {
+        return size;
+    }
 
     private boolean isFull() {
         return size == data.length;
@@ -96,13 +104,13 @@ public class DynamicArray<T> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        DynamicArray that = (DynamicArray) o;
+        DynamicArray<?> that = (DynamicArray<?>) o;
 
         if (size != that.size) return false;
 
-        // Sólo tenemos en cuenta los elementos del array que están en posiciones válidas
+        // Comparamos elemento por elemento
         for (int i = 0; i < size; i++) {
-            if (data[i] != that.data[i])
+            if (!data[i].equals(that.data[i]))
                 return false;
         }
         return true;
@@ -124,5 +132,4 @@ public class DynamicArray<T> {
         sb.append("]");
         return sb.toString();
     }
-
 }

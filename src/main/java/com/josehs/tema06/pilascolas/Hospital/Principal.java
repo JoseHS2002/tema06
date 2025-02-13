@@ -58,7 +58,7 @@ public class Principal {
                     System.out.print("Seleccione la consulta a la que atender: ");
                     int atenderConsulta = scanner.nextInt() - 1;
                     scanner.nextLine();
-                    Paciente pacienteAtendido = hospital.consultas.get(atenderConsulta).atenderSiguientePaciente(paciente);
+                    Paciente pacienteAtendido = hospital.consultas.get(atenderConsulta).atenderSiguientePaciente();
                     if (pacienteAtendido != null) {
                         System.out.println("Paciente atendido: " + pacienteAtendido);
                     } else {

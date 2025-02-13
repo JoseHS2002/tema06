@@ -1,12 +1,16 @@
 package com.josehs.tema06.Generics;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Pila<T> {
-/*
+
     private static final int INITIAL_SIZE = 10;
     private static final float GROW_FACTOR = 2f;
-    private static final T ERROR = null;
+    private final T ERROR = null;
     private T[] data;
     private int size;
+    private List<T> elementos;
 
     public static void main(String[] args) {
         Pila<Integer> pila = new Pila<>(5);
@@ -32,9 +36,11 @@ public class Pila<T> {
         pila.pop();
     }
 
+
     @SuppressWarnings("unchecked")
     public Pila() {
         this(INITIAL_SIZE);
+        elementos = new ArrayList<>();
     }
 
     @SuppressWarnings("unchecked")
@@ -100,5 +106,4 @@ public class Pila<T> {
         return sb.toString();
     }
 
- */
 }

@@ -29,6 +29,7 @@ public class Cola<T> {
         return elementos.get(0);
     }
 
+    //Devuelve el último elemento de la cola sin eliminarlo.
     public T peekLast() {
         if (isEmpty()) {
             return null;
@@ -40,21 +41,25 @@ public class Cola<T> {
         return elementos.isEmpty();
     }
 
+    //Vacía la cola
     public void clear() {
         elementos.clear();
     }
 
+    //Crea una copia de la cola
     public Cola<T> clone() {
         Cola<T> copia = new Cola<>();
         copia.elementos = new LinkedList<>(this.elementos);
         return copia;
     }
 
+    //Devuelve la distancia desde el inicio de la cola a la primera ocurrencia del elemento
     public int search(T elemento) {
         int index = elementos.indexOf(elemento);
         return index == -1 ? -1 : index + 1;
     }
 
+    //Invierte el orden de los elemetos de la cola
     public void reverse() {
         List<T> reversed = new LinkedList<>();
         for (int i = elementos.size() - 1; i >= 0; i--) {
@@ -64,35 +69,3 @@ public class Cola<T> {
     }
 }
 
-
-/*
-public class Cola<T> {
-    private List<T> elementos;
-
-    public Cola() {
-        elementos = new ArrayList<>();
-    }
-
-    public void ponerElementos(T elemento) {
-        elementos.add(elemento);
-    }
-
-    public T quitarElementos() {
-        if (elementos.isEmpty()) {
-            return null;
-        }
-        return elementos.remove(0);
-    }
-
-    public boolean estaVacio() {
-        return elementos.isEmpty();
-    }
-
-    @Override
-    public String toString() {
-        return "Cola{" +
-                "elementos=" + elementos +
-                '}';
-    }
-}
- */

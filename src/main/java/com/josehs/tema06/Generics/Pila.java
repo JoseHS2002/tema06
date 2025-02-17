@@ -33,16 +33,19 @@ public class Pila<T> {
         return elementos.isEmpty();
     }
 
+    //Vacia la pila
     public void clear() {
         elementos.clear();
     }
 
+    //Crea una copia de la pila
     public Pila<T> clone() {
         Pila<T> copia = new Pila<>();
         copia.elementos = new ArrayList<>(this.elementos);
         return copia;
     }
 
+    //Mira los elementos superiores sin extraerlos
     public List<T> peek(int n) {
         if (n < 1 || n > elementos.size()) {
             throw new IllegalArgumentException("Número de elementos a ver no válido");
@@ -50,11 +53,13 @@ public class Pila<T> {
         return new ArrayList<>(elementos.subList(elementos.size() - n, elementos.size()));
     }
 
+    //Devuelve la distancia desde la cima hasta la primera ocurrencia de este elemento
     public int search(T elemento) {
         int index = elementos.lastIndexOf(elemento);
         return index == -1 ? -1 : elementos.size() - index;
     }
 
+    //Invierte el orden de todos los elementos de la pila
     public void reverse() {
         Collections.reverse(elementos);
     }

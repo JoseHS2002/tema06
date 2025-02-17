@@ -17,7 +17,7 @@ public class Main {
         pila.push("B");
         pila.push("C");
 
-        System.out.println("\nPila después de agregar elementos:");
+        System.out.println("\nPila despues de agregar elementos:");
         System.out.println("Elemento superior: " + pila.peek());
         System.out.println("Buscar 'Elemento B': " + pila.search("B"));
         System.out.println("Ver los 2 elementos superiores: " + pila.peek(2));
@@ -33,6 +33,7 @@ public class Main {
         while (!pila.isEmpty()) {
             System.out.println(pila.pop());
         }
+
         //Implementación de la cola
         Cola<Integer> cola = new Cola<>();
         cola.ponerElemento(10);
@@ -64,6 +65,7 @@ public class Main {
         while (!cola.isEmpty()) {
             System.out.println(cola.quitarElemento());
         }
+
         //Implementación de array Dinamico
         DynamicArray<Double> dynamicArray = new DynamicArray<>();
         dynamicArray.add(1.1);

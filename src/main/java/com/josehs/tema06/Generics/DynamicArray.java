@@ -31,6 +31,7 @@ public class DynamicArray<T> {
         return size;
     }
 
+    //Reduce la capacidad interna del array al tamaño actual
     public void trimToSize() {
         if (size < capacity) {
             elementos = Arrays.copyOf(elementos, size);
@@ -38,6 +39,7 @@ public class DynamicArray<T> {
         }
     }
 
+    //Inetercambia los elementos en las posiciones especificadas
     public boolean swap(int index1, int index2) {
         if (index1 < 0 || index1 >= size || index2 < 0 || index2 >= size) {
             return false;
@@ -48,11 +50,13 @@ public class DynamicArray<T> {
         return true;
     }
 
+    //vaciar el array
     public void clear() {
         Arrays.fill(elementos, 0, size, null);
         size = 0;
     }
 
+    //Crear una copia del array
     public DynamicArray<T> clone() {
         DynamicArray<T> copia = new DynamicArray<>();
         copia.elementos = Arrays.copyOf(this.elementos, this.capacity);
@@ -61,6 +65,7 @@ public class DynamicArray<T> {
         return copia;
     }
 
+    //Devuelve el indice de la primera ocurrencia del elemento
     public int indexOf(T elemento) {
         for (int i = 0; i < size; i++) {
             if (elementos[i].equals(elemento)) {

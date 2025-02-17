@@ -2,108 +2,60 @@ package com.josehs.tema06.Generics;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 
 public class Pila<T> {
-
-    private static final int INITIAL_SIZE = 10;
-    private static final float GROW_FACTOR = 2f;
-    private final T ERROR = null;
-    private T[] data;
-    private int size;
     private List<T> elementos;
 
-    public static void main(String[] args) {
-        Pila<Integer> pila = new Pila<>(5);
-        System.out.println("Pila: ");
-        pila.push(1);
-        System.out.println(pila.toString());
-        pila.push(2);
-        System.out.println(pila.toString());
-        pila.push(3);
-        System.out.println(pila.toString());
-        pila.push(4);
-        System.out.println(pila.toString());
-        pila.push(5);
-        System.out.println(pila.toString());
-        pila.pop();
-        System.out.println(pila.toString());
-        pila.pop();
-        System.out.println(pila.toString());
-        pila.pop();
-        System.out.println(pila.toString());
-        pila.pop();
-        System.out.println(pila.toString());
-        pila.pop();
-    }
-
-
-    @SuppressWarnings("unchecked")
     public Pila() {
-        this(INITIAL_SIZE);
-        elementos = new ArrayList<>();
+        this.elementos = new ArrayList<>();
     }
 
-    @SuppressWarnings("unchecked")
-    public Pila(int size) {
-        data = (T[]) new Object[size];
-        this.size = 0;
-    }
-
-    public void push(T e) {
-        if (isFull()) {
-            expand();
-        }
-        data[size] = e;
-        size++;
-    }
-
-    @SuppressWarnings("unchecked")
-    private void expand() {
-        T[] aux = (T[]) new Object[Math.round(data.length * GROW_FACTOR)];
-        for (int i = 0; i < data.length; i++) {
-            aux[i] = data[i];
-        }
-        data = aux;
+    public void push(T elemento) {
+        elementos.add(elemento);
     }
 
     public T pop() {
-        T e = ERROR;
-        if (!isEmpty()) {
-            e = data[size - 1];
-            size--;
+        if (isEmpty()) {
+            throw new IllegalStateException("La pila está vacía");
         }
-        return e;
+        return elementos.remove(elementos.size() - 1);
     }
 
-    public T top() {
-        T e = ERROR;
-        if (!isEmpty()) {
-            e = data[size - 1];
+    public T peek() {
+        if (isEmpty()) {
+            throw new IllegalStateException("La pila está vacía");
         }
-        return e;
-    }
-
-    private boolean isFull() {
-        return size == data.length;
+        return elementos.get(elementos.size() - 1);
     }
 
     public boolean isEmpty() {
-        return size == 0;
+        return elementos.isEmpty();
     }
 
-    public int size() {
-        return size;
+    public void clear() {
+        elementos.clear();
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[ ");
-        for (int i = 0; i < size; i++) {
-            sb.append(data[i]).append(" ");
+    public Pila<T> clone() {
+        Pila<T> copia = new Pila<>();
+        copia.elementos = new ArrayList<>(this.elementos);
+        return copia;
+    }
+
+    public List<T> peek(int n) {
+        if (n < 1 || n > elementos.size()) {
+            throw new IllegalArgumentException("Número de elementos a ver no válido");
         }
-        sb.append("]");
-        return sb.toString();
+        return new ArrayList<>(elementos.subList(elementos.size() - n, elementos.size()));
     }
 
+    public int search(T elemento) {
+        int index = elementos.lastIndexOf(elemento);
+        return index == -1 ? -1 : elementos.size() - index;
+    }
+
+    public void reverse() {
+        Collections.reverse(elementos);
+    }
 }

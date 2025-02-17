@@ -1,135 +1,80 @@
 package com.josehs.tema06.Generics;
 
 import java.util.Arrays;
-import java.util.Random;
+
+
 
 public class DynamicArray<T> {
-
-    private static final double ERROR = Double.NEGATIVE_INFINITY;
-    private final static int DEFAULT_CAPACITY = 10;
-    private final static float GROW_FACTOR = 2f;
-    private T[] data;
+    private Object[] elementos;
     private int size;
-
-    public static void main(String[] args) {
-        Random random = new Random();
-        DynamicArray<Double> dynamicArray = new DynamicArray<>(10);
-        for (int i = 0; i < 10; i++) {
-            dynamicArray.add(random.nextDouble());
-        }
-        System.out.println(dynamicArray.toString());
-        dynamicArray.add(1.0);
-        System.out.println(dynamicArray.toString());
-        dynamicArray.remove(1.0);
-        System.out.println(dynamicArray.toString());
-
-        System.out.println(dynamicArray.get(3));
-        dynamicArray.add(3, 10.0);
-        System.out.println(dynamicArray.get(3));
-        System.out.println(dynamicArray.size);
-    }
+    private int capacity;
 
     public DynamicArray() {
-        this(DEFAULT_CAPACITY);
+        this.capacity = 10;
+        this.elementos = new Object[capacity];
+        this.size = 0;
     }
 
-    public DynamicArray(int capacity) {
-        data = (T[]) new Object[capacity];
-        size = 0;
+    public void add(T elemento) {
+        ensureCapacity();
+        elementos[size++] = elemento;
     }
 
     public T get(int index) {
-        if (index >= size || index < 0)
-            return null;
-        return data[index];
-    }
-
-    public boolean add(T value) {
-        if (isFull())
-            expand();
-        data[size] = value;
-        size++;
-        return true;
-    }
-
-    public boolean remove(T value) {
-        for (int i = 0; i < size; i++) {
-            if (data[i].equals(value)) {
-                for (int j = i; j < size - 1; j++) {
-                    data[j] = data[j + 1];
-                }
-                data[size - 1] = null;
-                size--;
-                return true;
-            }
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Indice fuera de rango");
         }
-        return false;
-    }
-
-    private void moveToRight(int index) {
-        for (int i = size; i > index; i--) {
-            data[i] = data[i - 1];
-        }
-        size++;
-    }
-
-    public boolean add(int index, T value) {
-        if (index >= size || index < 0)
-            return false;
-        if (isFull())
-            expand();
-        moveToRight(index);
-        data[index] = value;
-        return true;
-    }
-
-    private void expand() {
-        T[] copy = (T[]) new Object[Math.round(data.length * GROW_FACTOR)];
-        for (int i = 0; i < size; i++) {
-            copy[i] = data[i];
-        }
-        data = copy;
+        return (T) elementos[index];
     }
 
     public int size() {
         return size;
     }
 
-    private boolean isFull() {
-        return size == data.length;
+    public void trimToSize() {
+        if (size < capacity) {
+            elementos = Arrays.copyOf(elementos, size);
+            capacity = size;
+        }
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        DynamicArray<?> that = (DynamicArray<?>) o;
-
-        if (size != that.size) return false;
-
-        // Comparamos elemento por elemento
-        for (int i = 0; i < size; i++) {
-            if (!data[i].equals(that.data[i]))
-                return false;
+    public boolean swap(int index1, int index2) {
+        if (index1 < 0 || index1 >= size || index2 < 0 || index2 >= size) {
+            return false;
         }
+        T temp = (T) elementos[index1];
+        elementos[index1] = elementos[index2];
+        elementos[index2] = temp;
         return true;
     }
 
-    @Override
-    public int hashCode() {
-        int result = Arrays.hashCode(data);
-        result = 31 * result + size;
-        return result;
+    public void clear() {
+        Arrays.fill(elementos, 0, size, null);
+        size = 0;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[ ");
-        for (int i = 0; i < size; i++)
-            sb.append(data[i]).append(" ");
-        sb.append("]");
-        return sb.toString();
+    public DynamicArray<T> clone() {
+        DynamicArray<T> copia = new DynamicArray<>();
+        copia.elementos = Arrays.copyOf(this.elementos, this.capacity);
+        copia.size = this.size;
+        copia.capacity = this.capacity;
+        return copia;
+    }
+
+    public int indexOf(T elemento) {
+        for (int i = 0; i < size; i++) {
+            if (elementos[i].equals(elemento)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    private void ensureCapacity() {
+        if (size >= capacity) {
+            capacity = capacity * 2;
+            elementos = Arrays.copyOf(elementos, capacity);
+        }
     }
 }
+

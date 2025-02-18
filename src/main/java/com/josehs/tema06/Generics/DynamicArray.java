@@ -2,70 +2,59 @@ package com.josehs.tema06.Generics;
 
 import java.util.Arrays;
 
-
-
 public class DynamicArray<T> {
     private Object[] elementos;
     private int size;
-    private int capacity;
+    private int capacidad;
 
     public DynamicArray() {
-        this.capacity = 10;
-        this.elementos = new Object[capacity];
-        this.size = 0;
+        capacidad = 10;
+        elementos = new Object[capacidad];
+        size = 0;
     }
 
     public void add(T elemento) {
-        ensureCapacity();
+        if (size == capacidad) {
+            capacidad *= 2;
+            elementos = Arrays.copyOf(elementos, capacidad);
+        }
         elementos[size++] = elemento;
     }
 
     public T get(int index) {
         if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Indice fuera de rango");
+            return null;
         }
         return (T) elementos[index];
+    }
+
+    public void remove(int index) {
+        if (index < 0 || index >= size) {
+            return;
+        }
+        System.arraycopy(elementos, index + 1, elementos, index, size - index - 1);
+        size--;
     }
 
     public int size() {
         return size;
     }
 
-    //Reduce la capacidad interna del array al tamaño actual
-    public void trimToSize() {
-        if (size < capacity) {
-            elementos = Arrays.copyOf(elementos, size);
-            capacity = size;
-        }
-    }
-
-    //Inetercambia los elementos en las posiciones especificadas
-    public boolean swap(int index1, int index2) {
-        if (index1 < 0 || index1 >= size || index2 < 0 || index2 >= size) {
-            return false;
-        }
-        T temp = (T) elementos[index1];
-        elementos[index1] = elementos[index2];
-        elementos[index2] = temp;
-        return true;
-    }
-
-    //vaciar el array
+    //Vacia el array
     public void clear() {
-        Arrays.fill(elementos, 0, size, null);
+        elementos = new Object[capacidad];
         size = 0;
     }
 
-    //Crear una copia del array
+    //Crea una copia del array
     public DynamicArray<T> clone() {
         DynamicArray<T> copia = new DynamicArray<>();
-        copia.elementos = Arrays.copyOf(this.elementos, this.capacity);
+        copia.elementos = Arrays.copyOf(this.elementos, this.capacidad);
         copia.size = this.size;
-        copia.capacity = this.capacity;
         return copia;
     }
 
-    //Devuelve el indice de la primera ocurrencia del elemento
+    //devuelve el indice de la primera ocurrencia del elemento
     public int indexOf(T elemento) {
         for (int i = 0; i < size; i++) {
             if (elementos[i].equals(elemento)) {
@@ -75,11 +64,33 @@ public class DynamicArray<T> {
         return -1;
     }
 
-    private void ensureCapacity() {
-        if (size >= capacity) {
-            capacity = capacity * 2;
-            elementos = Arrays.copyOf(elementos, capacity);
+    //Reduce la capacidad interna al tamanyo original
+    public void trimToSize() {
+        if (size < capacidad) {
+            elementos = Arrays.copyOf(elementos, size);
+            capacidad = size;
         }
     }
+
+    //Intercambia los elementos en las posiciones especificadas
+    public boolean swap(int index1, int index2) {
+        if (index1 < 0 || index1 >= size || index2 < 0 || index2 >= size) {
+            return false;
+        }
+        Object temp = elementos[index1];
+        elementos[index1] = elementos[index2];
+        elementos[index2] = temp;
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "DynamicArray{" +
+                "elementos=" + Arrays.toString(elementos) +
+                ", tamaño=" + size +
+                ", capacidad=" + capacidad +
+                '}';
+    }
+
 }
 

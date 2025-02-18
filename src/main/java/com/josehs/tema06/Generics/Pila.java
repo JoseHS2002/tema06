@@ -1,8 +1,8 @@
 package com.josehs.tema06.Generics;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Collections;
 
 public class Pila<T> {
     private List<T> elementos;
@@ -48,7 +48,7 @@ public class Pila<T> {
     //Mira los elementos superiores sin extraerlos
     public List<T> peek(int n) {
         if (n < 1 || n > elementos.size()) {
-            throw new IllegalArgumentException("Número de elementos a ver no válido");
+            throw new IllegalArgumentException("Número de elementos no válido");
         }
         return new ArrayList<>(elementos.subList(elementos.size() - n, elementos.size()));
     }
@@ -61,6 +61,18 @@ public class Pila<T> {
 
     //Invierte el orden de todos los elementos de la pila
     public void reverse() {
-        Collections.reverse(elementos);
+        List<T> reversed = new LinkedList<>();
+        for (int i = elementos.size() - 1; i >= 0; i--) {
+            reversed.add(elementos.get(i));
+        }
+        elementos = reversed;
     }
+
+    @Override
+    public String toString() {
+        return "Pila{" +
+                "elementos=" + elementos +
+                '}';
+    }
+
 }

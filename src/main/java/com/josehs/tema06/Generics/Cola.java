@@ -67,5 +67,13 @@ public class Cola<T> {
         }
         elementos = reversed;
     }
+
+    @Override
+    public String toString() {
+        return "Cola{" +
+                "elementos=" + elementos +
+                '}';
+    }
+
 }
 

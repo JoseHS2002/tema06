@@ -4,9 +4,9 @@ public class Main {
     public static void main(String[] args) {
         //Implementacion de la pila
         Pila<String> pila = new Pila<>();
-        pila.push("1");
-        pila.push("2");
-        pila.push("3");
+        pila.push("A");
+        pila.push("B");
+        pila.push("C");
 
         System.out.println("Pila original:");
         while (!pila.isEmpty()) {
@@ -34,6 +34,13 @@ public class Main {
             System.out.println(pila.pop());
         }
 
+        System.out.println("Vaciar la pila");
+        pila.clear();
+        while (!pila.isEmpty()) {
+            System.out.println(pila.pop());
+        }
+        System.out.println("La pila esta vacia");
+
         //Implementación de la cola
         Cola<Integer> cola = new Cola<>();
         cola.ponerElemento(10);
@@ -45,14 +52,14 @@ public class Main {
             System.out.println(cola.quitarElemento());
         }
 
-        cola.ponerElemento(100);
-        cola.ponerElemento(200);
-        cola.ponerElemento(300);
+        cola.ponerElemento(10);
+        cola.ponerElemento(20);
+        cola.ponerElemento(30);
 
         System.out.println("\nCola despues de agregar elementos:");
         System.out.println("Primero: " + cola.peek());
         System.out.println("Ultimo: " + cola.peekLast());
-        System.out.println("Buscar 200: " + cola.search(200));
+        System.out.println("Buscar 200: " + cola.search(20));
 
         Cola<Integer> colaClonada = cola.clone();
         System.out.println("\nCola clonada:");
@@ -66,33 +73,37 @@ public class Main {
             System.out.println(cola.quitarElemento());
         }
 
-        //Implementación de array Dinamico
+        System.out.println("Vaciar la cola");
+        cola.clear();
+        while (!cola.isEmpty()) {
+            System.out.println(cola.quitarElemento());
+        }
+        System.out.println("La cola esta vacia");
+
+        //Implementación de array dinamico
+
         DynamicArray<Double> dynamicArray = new DynamicArray<>();
         dynamicArray.add(1.1);
         dynamicArray.add(2.2);
         dynamicArray.add(3.3);
-
-        System.out.println("\nDynamicArray original:");
-        for (int i = 0; i < dynamicArray.size(); i++) {
-            System.out.println(dynamicArray.get(i));
-        }
-
+        System.out.println("DynamicArray tamanyo: ");
+        System.out.println(dynamicArray.size());
         dynamicArray.add(4.4);
         dynamicArray.add(5.5);
-
-        System.out.println("\nDynamicArray despues de agregar elementos:");
-        System.out.println("Indice de 4.4: " + dynamicArray.indexOf(4.4));
+        System.out.println("Devolver la primera ocurrencia de (4.4)");
+        System.out.println(dynamicArray.indexOf(4.4));
         dynamicArray.trimToSize();
         System.out.println("Tamano despues de trimToSize: " + dynamicArray.size());
-
-        dynamicArray.swap(1, 3);
-        System.out.println("\nDynamicArray despues de swap:");
-        for (int i = 0; i < dynamicArray.size(); i++) {
-            System.out.println(dynamicArray.get(i));
-        }
-
+        dynamicArray.swap(0, 2);
+        System.out.println("DynamicArray después de swap: " + dynamicArray.get(0) + ", " + dynamicArray.get(2));
+        dynamicArray.clone();
+        System.out.println("Clonar el array");
+        System.out.println(dynamicArray.size());
+        System.out.println("Array clonado");
         dynamicArray.clear();
-        System.out.println("\nDynamicArray despues de clear:");
-        System.out.println("Tamano: " + dynamicArray.size());
+        System.out.println("Vaciar el array");
+        System.out.println(dynamicArray.size());
+        System.out.println("El array está vacío");
+
     }
 }

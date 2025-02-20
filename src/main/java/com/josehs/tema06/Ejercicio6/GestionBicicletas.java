@@ -1,80 +1,50 @@
 package com.josehs.tema06.Ejercicio6;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class GestionBicicletas {
+    Map<String, Bicicleta> bicicletas;
 
-    private static Scanner scanner = new Scanner(System.in);
-
-    public static void main(String[] args) {
-            System.out.println("\n*************************");
-            System.out.println("** GESTIÓN DE BICICLETAS **");
-            System.out.println("*************************");
-            System.out.println("1.- Añadir bicicleta …");
-            System.out.println("2.- Vender bicicleta ...");
-            System.out.println("3.- Consultar bicicleta …");
-            System.out.println("4.- Mostrar stock");
-            System.out.println("------------------------------------");
-            System.out.println("0.- Salir.");
+    public GestionBicicletas() {
+        bicicletas = new GestionBicicletas();
     }
 
-    private static void anadirBicicleta() {
-        System.out.print("Dime la referencia: ");
-        String referencia = scanner.nextLine();
-
-        System.out.print("Dime la marca: ");
-        String marca = scanner.nextLine();
-        System.out.print("Dime el modelo: ");
-        String modelo = scanner.nextLine();
-        System.out.print("Dime el peso en Kg: ");
-        double peso = scanner.nextDouble();
-        System.out.print("Dime el tamaño de las ruedas en pulgadas: ");
-        double tamanyoRuedas = scanner.nextDouble();
-        scanner.nextLine();
-        System.out.print("Dime la fecha de fabricación (dd/mm/aaaa): ");
-        String fechaFabricacion = scanner.nextLine();
-        System.out.print("Dime el precio: ");
-        double precio = scanner.nextDouble();
-        System.out.print("Dime el número de existencias: ");
-        int existencias = scanner.nextInt();
+    public void anyadirBicicleta(Bicicleta bicicleta) {
+        if (bicicletas.containsKey(bicicleta.getReferencia())) {
+            bicicletas.get(bicicleta.getReferencia());
+        } else {
+            bicicletas.put(bicicleta.getReferencia(), bicicleta);
+        }
 
     }
 
-    private static void venderBicicleta() {
-        System.out.print("Introduce la referencia de la bicicleta a vender: ");
-        String referencia = scanner.nextLine();
+
+    public boolean venderBicicleta(String referencia) {
+        if (bicicletas.containsKey(referencia)) {
+            return bicicletas.get(referencia).mostrarDatos();
+        }
+        return false;
 
     }
 
-    private static void consultarBicicleta() {
-            System.out.println("\n***********************");
-            System.out.println("** CONSULTA BICICLETA **");
-            System.out.println("***********************");
-            System.out.println("1.- Consultar por referencia …");
-            System.out.println("2.- Consultar por marca …");
-            System.out.println("3.- Consultar por modelo …");
-            System.out.println("---------------------------------");
-            System.out.println("0.- Volver al menú principal.");
 
+    public Bicicleta consultarReferencia(String referencia) {
+        return bicicletas.get(referencia);
     }
 
-    private static void consultarPorReferencia() {
-        System.out.print("Introduce la referencia: ");
-        String referencia = scanner.nextLine();
+    public List<Bicicleta> consultarModelo(String modelo) {
+        return bicicletas.get(modelo);
     }
 
-    private static void consultarPorMarca() {
-        System.out.print("Introduce la marca: ");
-        String marca = scanner.nextLine();
+    public List<Bicicleta> consultarMarca(String marca) {
+        return bicicletas.get(marca);
     }
 
-    private static void consultarPorModelo() {
-        System.out.print("Introduce el modelo: ");
-        String modelo = scanner.nextLine();
+    public void mostrarStock() {
+        for (Bicicleta bicicleta : bicicletas.values()) {
+            System.out.println("Referencia: " + bicicleta.getReferencia() + " | Cantidad: " + bicicleta.getCantidad());
+        }
     }
 
-    private static void mostrarStock() {
-        System.out.println("\n******** STOCK DE BICICLETAS ********");
 
-    }
 }

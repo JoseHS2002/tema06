@@ -4,25 +4,25 @@ import java.util.List;
 import java.util.LinkedList;
 
 
-public class Cola<T> {
-    private List<T> elementos;
+public class Cola<Object> {
+    private List<Object> elementos;
 
     public Cola() {
         this.elementos = new LinkedList<>();
     }
 
-    public void ponerElemento(T elemento) {
+    public void ponerElemento(Object elemento) {
         elementos.add(elemento);
     }
 
-    public T quitarElemento() {
+    public Object quitarElemento() {
         if (isEmpty()) {
             throw new IllegalStateException("La cola está vacía");
         }
         return elementos.remove(0);
     }
 
-    public T peek() {
+    public Object peek() {
         if (isEmpty()) {
             throw new IllegalStateException("La cola está vacía");
         }
@@ -30,7 +30,7 @@ public class Cola<T> {
     }
 
     //Devuelve el último elemento de la cola sin eliminarlo.
-    public T peekLast() {
+    public Object peekLast() {
         if (isEmpty()) {
             return null;
         }
@@ -47,21 +47,21 @@ public class Cola<T> {
     }
 
     //Crea una copia de la cola
-    public Cola<T> clone() {
-        Cola<T> copia = new Cola<>();
+    public Cola<Object> clone() {
+        Cola<Object> copia = new Cola<>();
         copia.elementos = new LinkedList<>(this.elementos);
         return copia;
     }
 
     //Devuelve la distancia desde el inicio de la cola a la primera ocurrencia del elemento
-    public int search(T elemento) {
+    public int search(Object elemento) {
         int index = elementos.indexOf(elemento);
         return index == -1 ? -1 : index + 1;
     }
 
     //Invierte el orden de los elemetos de la cola
     public void reverse() {
-        List<T> reversed = new LinkedList<>();
+        List<Object> reversed = new LinkedList<>();
         for (int i = elementos.size() - 1; i >= 0; i--) {
             reversed.add(elementos.get(i));
         }

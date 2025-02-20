@@ -3,36 +3,36 @@ package com.josehs.tema06.Generics;
 import java.util.Arrays;
 
 public class DynamicArray<T> {
-    private Object[] elementos;
+    private Object[] data;
     private int size;
     private int capacidad;
 
     public DynamicArray() {
         capacidad = 10;
-        elementos = new Object[capacidad];
+        data = new Object[capacidad];
         size = 0;
     }
 
-    public void add(T elemento) {
+    public void add(Object elemento) {
         if (size == capacidad) {
             capacidad *= 2;
-            elementos = Arrays.copyOf(elementos, capacidad);
+            data = Arrays.copyOf(data, capacidad);
         }
-        elementos[size++] = elemento;
+        data[size++] = elemento;
     }
 
-    public T get(int index) {
+    public Object get(int index) {
         if (index < 0 || index >= size) {
             return null;
         }
-        return (T) elementos[index];
+        return (Object) data[index];
     }
 
     public void remove(int index) {
         if (index < 0 || index >= size) {
             return;
         }
-        System.arraycopy(elementos, index + 1, elementos, index, size - index - 1);
+        System.arraycopy(data, index + 1, data, index, size - index - 1);
         size--;
     }
 
@@ -42,22 +42,22 @@ public class DynamicArray<T> {
 
     //Vacia el array
     public void clear() {
-        elementos = new Object[capacidad];
+        data = new Object[capacidad];
         size = 0;
     }
 
     //Crea una copia del array
-    public DynamicArray<T> clone() {
-        DynamicArray<T> copia = new DynamicArray<>();
-        copia.elementos = Arrays.copyOf(this.elementos, this.capacidad);
+    public DynamicArray<Object> clone() {
+        DynamicArray<Object> copia = new DynamicArray<>();
+        copia.data = Arrays.copyOf(this.data, this.capacidad);
         copia.size = this.size;
         return copia;
     }
 
     //devuelve el indice de la primera ocurrencia del elemento
-    public int indexOf(T elemento) {
+    public int indexOf(Object elemento) {
         for (int i = 0; i < size; i++) {
-            if (elementos[i].equals(elemento)) {
+            if (data[i].equals(elemento)) {
                 return i;
             }
         }
@@ -67,7 +67,7 @@ public class DynamicArray<T> {
     //Reduce la capacidad interna al tamanyo original
     public void trimToSize() {
         if (size < capacidad) {
-            elementos = Arrays.copyOf(elementos, size);
+            data = Arrays.copyOf(data, size);
             capacidad = size;
         }
     }
@@ -77,16 +77,16 @@ public class DynamicArray<T> {
         if (index1 < 0 || index1 >= size || index2 < 0 || index2 >= size) {
             return false;
         }
-        Object temp = elementos[index1];
-        elementos[index1] = elementos[index2];
-        elementos[index2] = temp;
+        Object temp = data[index1];
+        data[index1] = data[index2];
+        data[index2] = temp;
         return true;
     }
 
     @Override
     public String toString() {
         return "DynamicArray{" +
-                "elementos=" + Arrays.toString(elementos) +
+                "elementos=" + Arrays.toString(data) +
                 ", tamaño=" + size +
                 ", capacidad=" + capacidad +
                 '}';

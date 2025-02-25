@@ -77,11 +77,11 @@ public class Coche {
         this.tipoCoche = tipoCoche;
     }
 
-    public int getAñoFabricacion() {
+    public int getAnyoFabricacion() {
         return anyoFabricacion;
     }
 
-    public void setAñoFabricacion(int añoFabricacion) {
+    public void setAnyoFabricacion(int añoFabricacion) {
         this.anyoFabricacion = añoFabricacion;
     }
 

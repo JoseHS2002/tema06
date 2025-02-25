@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Principal {
+    /*
     public static void main(String[] args) throws ParseException {
         GestionBicicletas tienda = new GestionBicicletas();
         Scanner scanner = new Scanner(System.in);
@@ -149,5 +150,5 @@ public class Principal {
 
         scanner.close();
     }
-
+     */
 }

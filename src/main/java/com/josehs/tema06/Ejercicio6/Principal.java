@@ -1,6 +1,7 @@
 package com.josehs.tema06.Ejercicio6;
 
 import java.util.Scanner;
+import com.josehs.tema06.Ejercicio6.GestionBicicletas;
 
 public class Principal {
     public static Scanner scanner = new Scanner(System.in);

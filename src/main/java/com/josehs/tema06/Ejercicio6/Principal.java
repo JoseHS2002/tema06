@@ -54,7 +54,7 @@ public class Principal {
             }
         } while (opcion != 0);
     }
-    public void consultarBicicleta (Scanner scanner){
+    public void consultarBicicleta (){
         int opcionConsulta;
         do {
             System.out.println("***********************");

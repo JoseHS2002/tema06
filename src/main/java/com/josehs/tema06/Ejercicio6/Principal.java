@@ -78,7 +78,7 @@ public class Principal {
                     GestionBicicletas.consultarMarca(scanner);
                     break;
                 case 3:
-                    GestionBicicletas.consultarPorModelo(scanner);
+                    GestionBicicletas.consultarModelo(scanner);
                     break;
                 case 0:
                     System.out.println("Volviendo al menú principal.");

@@ -96,7 +96,7 @@ public class GestionBicicletas {
         }
     }
 
-    public void consultarPorModelo(Scanner scanner) {
+    public void consultarModelo(Scanner scanner) {
         System.out.print("Dime el modelo: ");
         String modelo = scanner.nextLine();
 

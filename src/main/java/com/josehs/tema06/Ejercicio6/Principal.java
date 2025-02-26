@@ -35,16 +35,16 @@ public class Principal {
 
             switch (opcion) {
                 case 1:
-                    gestion.anyadirBicicleta(scanner);
+                    GestionBicicletas.anyadirBicicleta(scanner);
                     break;
                 case 2:
-                    gestion.venderBicicleta(scanner);
+                    GestionBicicletas.venderBicicleta(scanner);
                     break;
                 case 3:
-                    gestion.consultarBicicleta(scanner);
+                    GestionBicicletas.consultarBicicleta(scanner);
                     break;
                 case 4:
-                    gestion.mostrarStock();
+                    GestionBicicletas.mostrarStock();
                     break;
                 case 0:
                     System.out.println("Saliendo del programa...");
@@ -72,13 +72,13 @@ public class Principal {
 
             switch (opcionConsulta) {
                 case 1:
-                    consultarPorReferencia(scanner);
+                    GestionBicicletas.consultarPorReferencia(scanner);
                     break;
                 case 2:
-                    consultarPorMarca(scanner);
+                    GestionBicicletas.consultarPorMarca(scanner);
                     break;
                 case 3:
-                    consultarPorModelo(scanner);
+                    GestionBicicletas.consultarPorModelo(scanner);
                     break;
                 case 0:
                     System.out.println("Volviendo al menú principal.");

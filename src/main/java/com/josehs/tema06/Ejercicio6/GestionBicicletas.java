@@ -86,7 +86,7 @@ public class GestionBicicletas {
         System.out.print("Introduzca la marca: ");
         String marca = scanner.nextLine();
 
-        ArrayList<Bicicleta> bicicletasEncontradas = buscarBicicletasPorMarca(marca);
+        ArrayList<Bicicleta> bicicletasEncontradas = buscarMarcaBicicleta(marca);
         if (bicicletasEncontradas.size() > 0) {
             System.out.println("Bicicletas de la marca " + marca + ":");
             for (Bicicleta bicicleta : bicicletasEncontradas) {
@@ -101,7 +101,7 @@ public class GestionBicicletas {
         System.out.print("Dime el modelo: ");
         String modelo = scanner.nextLine();
 
-        ArrayList<Bicicleta> bicicletasEncontradas = buscarBicicletasPorModelo(modelo);
+        ArrayList<Bicicleta> bicicletasEncontradas = buscarModeloBicicleta(modelo);
         if (bicicletasEncontradas.size() > 0) {
             System.out.println("Bicicletas del modelo " + modelo + ":");
             for (Bicicleta bicicleta : bicicletasEncontradas) {
@@ -132,7 +132,7 @@ public class GestionBicicletas {
         return null;
     }
 
-    private ArrayList<Bicicleta> buscarBicicletasPorMarca(String marca) {
+    private ArrayList<Bicicleta> buscarMarcaBicicleta(String marca) {
         ArrayList<Bicicleta> bicicletasEncontradas = new ArrayList<>();
         for (Bicicleta bicicleta : bicicletas) {
             if (bicicleta.getMarca().equals(marca)) {
@@ -142,7 +142,7 @@ public class GestionBicicletas {
         return bicicletasEncontradas;
     }
 
-    private ArrayList<Bicicleta> buscarBicicletasPorModelo(String modelo) {
+    private ArrayList<Bicicleta> buscarModeloBicicleta(String modelo) {
         ArrayList<Bicicleta> bicicletasEncontradas = new ArrayList<>();
         for (Bicicleta bicicleta : bicicletas) {
             if (bicicleta.getModelo().equals(modelo)) {

@@ -36,20 +36,20 @@ public class GestionBicicletas {
             String modelo = scanner.nextLine();
             System.out.print("Introduzca el peso (Kg): ");
             double peso = scanner.nextDouble();
-            scanner.nextLine(); // Consumir el salto de línea
+            scanner.nextLine();
             System.out.print("Introduzca el tamaño de las ruedas (pulgadas): ");
             int tamañoRuedas = scanner.nextInt();
-            scanner.nextLine(); // Consumir el salto de línea
+            scanner.nextLine();
             System.out.print("¿Tiene motor? (S/N): ");
             boolean tieneMotor = scanner.nextLine().equalsIgnoreCase("S");
             System.out.print("Introduzca la fecha de fabricación (AAAA-MM-DD): ");
             LocalDate fechaFabricacion = LocalDate.parse(scanner.nextLine());
             System.out.print("Introduzca el precio: ");
             double precio = scanner.nextDouble();
-            scanner.nextLine(); // Consumir el salto de línea
+            scanner.nextLine();
             System.out.print("Introduzca el número de existencias: ");
             int stock = scanner.nextInt();
-            scanner.nextLine(); // Consumir el salto de línea
+            scanner.nextLine();
 
             Bicicleta nuevaBicicleta = new Bicicleta(referencia, marca, modelo, peso, tamañoRuedas, tieneMotor, fechaFabricacion, precio, stock);
             bicicletas.add(nuevaBicicleta);

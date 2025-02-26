@@ -93,7 +93,7 @@ public class GestionAlumnos {
         System.out.println("Baja de Alumno");
         System.out.print("NIA del alumno a eliminar: ");
         int nia = scanner.nextInt();
-        scanner.nextLine(); // Consumir el salto de línea
+        scanner.nextLine();
 
         Alumno alumnoEliminar = buscarAlumnoPorNia(nia);
 

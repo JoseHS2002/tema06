@@ -13,6 +13,18 @@ public class Bicicleta {
     private double precio;
     private int stock;
 
+    /**
+     *
+     * @param referencia
+     * @param marca
+     * @param modelo
+     * @param peso
+     * @param tamañoRuedas
+     * @param tieneMotor
+     * @param fechaFabricacion
+     * @param precio
+     * @param stock
+     */
     public Bicicleta(String referencia, String marca, String modelo, double peso, int tamañoRuedas, boolean tieneMotor, LocalDate fechaFabricacion, double precio, int stock) {
         this.referencia = referencia;
         this.marca = marca;

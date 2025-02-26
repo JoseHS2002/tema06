@@ -15,11 +15,11 @@ public class GestionAlumnos {
         alumnos = new ArrayList<>();
     }
 
-    public void iniciar() {
+    public void menu() {
         Scanner scanner = new Scanner(System.in);
         int opcion;
 
-        registrarAlumnosPrueba();
+        registrarAlumnosAleatorio();
 
         do {
             Principal.mostrarMenu();
@@ -182,7 +182,7 @@ public class GestionAlumnos {
         return Period.between(fechaNacimiento, ahora).getYears();
     }
 
-    private void registrarAlumnosPrueba() {
+    private void registrarAlumnosAleatorio() {
         Random random = new Random();
         String[] nombres = {"Juan", "Ana", "Pedro", "María", "Luis", "Laura", "Javier", "Isabel"};
         String[] apellidos = {"García", "Rodríguez", "González", "Fernández", "López", "Martínez", "Sánchez", "Pérez"};

@@ -4,7 +4,7 @@ package com.josehs.tema06.Ejercicio3;
 public class Principal {
     public static void main(String[] args) {
         GestionAlumnos gestionAlumnos = new GestionAlumnos();
-        gestionAlumnos.iniciar();
+        gestionAlumnos.menu();
     }
 
     static void mostrarMenu() {

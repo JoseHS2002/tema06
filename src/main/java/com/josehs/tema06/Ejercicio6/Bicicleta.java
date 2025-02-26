@@ -77,7 +77,7 @@ public class Bicicleta {
         stock++;
     }
 
-    public void disminuirStock() {
+    public void reducirStock() {
         stock--;
     }
 

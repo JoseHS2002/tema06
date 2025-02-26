@@ -60,7 +60,7 @@ public class GestionBicicletas {
         Bicicleta bicicletaAVender = buscarBicicletaPorReferencia(referencia);
         if (bicicletaAVender != null) {
             if (bicicletaAVender.getStock() > 0) {
-                bicicletaAVender.disminuirStock();
+                bicicletaAVender.reducirStock();
                 System.out.println("Bicicleta " + referencia + " vendida correctamente.");
             } else {
                 System.out.println("No hay stock de la bicicleta " + referencia + ".");

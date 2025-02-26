@@ -86,7 +86,7 @@ public class GestionBicicletas {
         String marca = scanner.nextLine();
 
         ArrayList<Bicicleta> bicicletasEncontradas = buscarMarcaBicicleta(marca);
-        if (bicicletasEncontradas.size() > 0) {
+        if (!bicicletasEncontradas.isEmpty()) {
             System.out.println("Bicicletas de la marca " + marca + ":");
             for (Bicicleta bicicleta : bicicletasEncontradas) {
                 System.out.println(bicicleta);
@@ -101,7 +101,7 @@ public class GestionBicicletas {
         String modelo = scanner.nextLine();
 
         ArrayList<Bicicleta> bicicletasEncontradas = buscarModeloBicicleta(modelo);
-        if (bicicletasEncontradas.size() > 0) {
+        if (!bicicletasEncontradas.isEmpty()) {
             System.out.println("Bicicletas del modelo " + modelo + ":");
             for (Bicicleta bicicleta : bicicletasEncontradas) {
                 System.out.println(bicicleta);

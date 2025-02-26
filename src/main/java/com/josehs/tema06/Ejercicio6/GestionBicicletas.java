@@ -8,7 +8,6 @@ public class GestionBicicletas {
 
     private ArrayList<Bicicleta> bicicletas = new ArrayList<>();
 
-
     public void anyadirBicicleta(Scanner scanner) {
         System.out.println("Añadir bicicleta");
         System.out.print("Dime la referencia: ");
@@ -70,7 +69,7 @@ public class GestionBicicletas {
         }
     }
 
-    public void consultarPorReferencia(Scanner scanner) {
+    public void consultarReferencia(Scanner scanner) {
         System.out.print("Dime la referencia: ");
         String referencia = scanner.nextLine();
 
@@ -82,7 +81,7 @@ public class GestionBicicletas {
         }
     }
 
-    public void consultarPorMarca(Scanner scanner) {
+    public void consultarMarca(Scanner scanner) {
         System.out.print("Introduzca la marca: ");
         String marca = scanner.nextLine();
 

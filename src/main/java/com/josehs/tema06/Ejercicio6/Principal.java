@@ -72,10 +72,10 @@ public class Principal {
 
             switch (opcionConsulta) {
                 case 1:
-                    GestionBicicletas.consultarPorReferencia(scanner);
+                    GestionBicicletas.consultarReferencia(scanner);
                     break;
                 case 2:
-                    GestionBicicletas.consultarPorMarca(scanner);
+                    GestionBicicletas.consultarMarca(scanner);
                     break;
                 case 3:
                     GestionBicicletas.consultarPorModelo(scanner);

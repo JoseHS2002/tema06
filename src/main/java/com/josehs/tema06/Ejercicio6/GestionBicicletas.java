@@ -11,7 +11,7 @@ public class GestionBicicletas {
 
     public void anyadirBicicleta(Scanner scanner) {
         System.out.println("Añadir bicicleta");
-        System.out.print("Introduzca la referencia: ");
+        System.out.print("Dime la referencia: ");
         String referencia = scanner.nextLine();
 
         Bicicleta bicicletaExistente = buscarBicicletaPorReferencia(referencia);
@@ -19,24 +19,24 @@ public class GestionBicicletas {
             System.out.println("La referencia ya existe. Incrementando el stock.");
             bicicletaExistente.incrementarStock();
         } else {
-            System.out.print("Introduzca la marca: ");
+            System.out.print("Dime la marca: ");
             String marca = scanner.nextLine();
-            System.out.print("Introduzca el modelo: ");
+            System.out.print("Dime el modelo: ");
             String modelo = scanner.nextLine();
-            System.out.print("Introduzca el peso (Kg): ");
+            System.out.print("Dime el peso (Kg): ");
             double peso = scanner.nextDouble();
             scanner.nextLine();
-            System.out.print("Introduzca el tamaño de las ruedas (pulgadas): ");
+            System.out.print("Dime el tamaño de las ruedas (pulgadas): ");
             int tamanyoRuedas = scanner.nextInt();
             scanner.nextLine();
             System.out.print("¿Tiene motor? (S/N): ");
             boolean tieneMotor = scanner.nextLine().equalsIgnoreCase("S");
-            System.out.print("Introduzca la fecha de fabricación (AAAA-MM-DD): ");
+            System.out.print("Dime la fecha de fabricación (AAAA-MM-DD): ");
             LocalDate fechaFabricacion = LocalDate.parse(scanner.nextLine());
-            System.out.print("Introduzca el precio: ");
+            System.out.print("Dime el precio: ");
             double precio = scanner.nextDouble();
             scanner.nextLine();
-            System.out.print("Introduzca el número de existencias: ");
+            System.out.print("Dime el número de existencias: ");
             int stock = scanner.nextInt();
             scanner.nextLine();
 

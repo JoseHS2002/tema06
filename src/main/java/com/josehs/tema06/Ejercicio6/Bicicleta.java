@@ -1,25 +1,28 @@
 package com.josehs.tema06.Ejercicio6;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Bicicleta {
     private String referencia;
     private String marca;
     private String modelo;
+    private double peso;
+    private int tamanyoRuedas;
     private boolean tieneMotor;
-    private Date fechaFabricacion;
+    private LocalDate fechaFabricacion;
     private double precio;
-    private int cantidad;
+    private int stock;
 
-    public Bicicleta(String referencia, String marca, String modelo,
-                     boolean tieneMotor, Date fechaFabricacion, double precio, int cantidad) {
+    public Bicicleta(String referencia, String marca, String modelo, double peso, int tamañoRuedas, boolean tieneMotor, LocalDate fechaFabricacion, double precio, int stock) {
         this.referencia = referencia;
         this.marca = marca;
         this.modelo = modelo;
+        this.peso = peso;
+        this.tamanyoRuedas = tamanyoRuedas;
         this.tieneMotor = tieneMotor;
         this.fechaFabricacion = fechaFabricacion;
         this.precio = precio;
-        this.cantidad = cantidad;
+        this.stock = stock;
     }
 
     public String getReferencia() {
@@ -34,11 +37,19 @@ public class Bicicleta {
         return modelo;
     }
 
-    public boolean tieneMotor() {
+    public double getPeso() {
+        return peso;
+    }
+
+    public int getTamanyoRuedas() {
+        return tamanyoRuedas;
+    }
+
+    public boolean isTieneMotor() {
         return tieneMotor;
     }
 
-    public Date getFechaFabricacion() {
+    public LocalDate getFechaFabricacion() {
         return fechaFabricacion;
     }
 
@@ -46,19 +57,30 @@ public class Bicicleta {
         return precio;
     }
 
-    public int getCantidad() {
-        return cantidad;
+    public int getStock() {
+        return stock;
     }
 
-    public void mostrarDatos() {
-        System.out.println("Referencia: " + referencia);
-        System.out.println("Marca: " + marca);
-        System.out.println("Modelo: " + modelo);
-        System.out.println("Motor: " + (tieneMotor ? "Sí" : "No"));
-        System.out.println("Fecha de fabricación: " + fechaFabricacion);
-        System.out.println("Precio: " + precio + " €");
-        System.out.println("Cantidad: " + cantidad);
-
+    public void incrementarStock() {
+        stock++;
     }
 
+    public void disminuirStock() {
+        stock--;
+    }
+
+    @Override
+    public String toString() {
+        return "Bicicleta{" +
+                "referencia='" + referencia + '\'' +
+                ", marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", peso=" + peso +
+                ", tamanyoRuedas=" + tamanyoRuedas +
+                ", tieneMotor=" + tieneMotor +
+                ", fechaFabricacion=" + fechaFabricacion +
+                ", precio=" + precio +
+                ", stock=" + stock +
+                '}';
+    }
 }

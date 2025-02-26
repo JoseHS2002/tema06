@@ -1,18 +1,25 @@
 package com.josehs.tema06.Ejercicio3;
 
-import java.util.Date;
 import java.time.LocalDate;
-import java.time.Period;
 
 public class Alumno {
-    int nia;
-    String nombre;
-    String apellidos;
-    Date fechaNacimiento;
-    String grupo;
-    String telefono;
+    private int nia;
+    private String nombre;
+    private String apellidos;
+    private LocalDate fechaNacimiento;
+    private String grupo;
+    private String telefono;
 
-    public Alumno(int nia, String nombre, String apellidos, Date fechaNacimiento, String grupo, String telefono) {
+    /**
+     *
+     * @param nia
+     * @param nombre
+     * @param apellidos
+     * @param fechaNacimiento
+     * @param grupo
+     * @param telefono
+     */
+    public Alumno(int nia, String nombre, String apellidos, LocalDate fechaNacimiento, String grupo, String telefono) {
         this.nia = nia;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -21,15 +28,37 @@ public class Alumno {
         this.telefono = telefono;
     }
 
+    public int getNia() {
+        return nia;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public String getGrupo() {
+        return grupo;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    @Override
     public String toString() {
-        return ", Nombre: " + nombre + ", Apellidos: " + apellidos +
-                ", Fecha de Nacimiento: " + fechaNacimiento + ", Grupo: " + grupo + ", Telefono: "+telefono;
+        return "NIA: " + nia +
+                ", Nombre: " + nombre +
+                ", Apellidos: " + apellidos +
+                ", Fecha de nacimiento: " + fechaNacimiento +
+                ", Grupo: " + grupo +
+                ", Teléfono: " + telefono;
     }
-
-    public static int calcularEdad(LocalDate fechaNacimiento) {
-        LocalDate hoy = LocalDate.now();
-        Period periodo = Period.between(fechaNacimiento, hoy);
-        return periodo.getYears();
-    }
-
 }

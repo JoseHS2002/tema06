@@ -14,7 +14,7 @@ public class GestionBicicletas {
         System.out.print("Dime la referencia: ");
         String referencia = scanner.nextLine();
 
-        Bicicleta bicicletaExistente = buscarBicicletaPorReferencia(referencia);
+        Bicicleta bicicletaExistente = buscarReferenciaBicicleta(referencia);
         if (bicicletaExistente != null) {
             System.out.println("La referencia ya existe. Incrementando el stock.");
             bicicletaExistente.incrementarStock();
@@ -57,10 +57,10 @@ public class GestionBicicletas {
         System.out.print("Dime la referencia de la bicicleta: ");
         String referencia = scanner.nextLine();
 
-        Bicicleta bicicletaAVender = buscarBicicletaPorReferencia(referencia);
-        if (bicicletaAVender != null) {
-            if (bicicletaAVender.getStock() > 0) {
-                bicicletaAVender.reducirStock();
+        Bicicleta venderBicicleta = buscarReferenciaBicicleta(referencia);
+        if (venderBicicleta != null) {
+            if (venderBicicleta.getStock() > 0) {
+                venderBicicleta.reducirStock();
                 System.out.println("Bicicleta " + referencia + " vendida correctamente.");
             } else {
                 System.out.println("No hay stock de la bicicleta " + referencia + ".");
@@ -74,7 +74,7 @@ public class GestionBicicletas {
         System.out.print("Dime la referencia: ");
         String referencia = scanner.nextLine();
 
-        Bicicleta bicicletaEncontrada = buscarBicicletaPorReferencia(referencia);
+        Bicicleta bicicletaEncontrada = buscarReferenciaBicicleta(referencia);
         if (bicicletaEncontrada != null) {
             System.out.println(bicicletaEncontrada);
         } else {
@@ -123,7 +123,7 @@ public class GestionBicicletas {
         }
     }
 
-    private Bicicleta buscarBicicletaPorReferencia(String referencia) {
+    private Bicicleta buscarReferenciaBicicleta(String referencia) {
         for (Bicicleta bicicleta : bicicletas) {
             if (bicicleta.getReferencia().equals(referencia)) {
                 return bicicleta;

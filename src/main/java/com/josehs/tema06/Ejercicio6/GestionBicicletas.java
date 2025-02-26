@@ -8,17 +8,6 @@ public class GestionBicicletas {
 
     private ArrayList<Bicicleta> bicicletas = new ArrayList<>();
 
-    public void mostrarMenuPrincipal() {
-        System.out.println("*************************");
-        System.out.println("** GESTIÓN DE BICICLETAS **");
-        System.out.println("*************************");
-        System.out.println("1.- Añadir bicicleta ...");
-        System.out.println("2.- Vender bicicleta ...");
-        System.out.println("3.- Consultar bicicleta ...");
-        System.out.println("4.- Mostrar stock");
-        System.out.println("------------------------------------");
-        System.out.println("0.- Salir");
-    }
 
     public void anyadirBicicleta(Scanner scanner) {
         System.out.println("Añadir bicicleta");
@@ -38,7 +27,7 @@ public class GestionBicicletas {
             double peso = scanner.nextDouble();
             scanner.nextLine();
             System.out.print("Introduzca el tamaño de las ruedas (pulgadas): ");
-            int tamañoRuedas = scanner.nextInt();
+            int tamanyoRuedas = scanner.nextInt();
             scanner.nextLine();
             System.out.print("¿Tiene motor? (S/N): ");
             boolean tieneMotor = scanner.nextLine().equalsIgnoreCase("S");
@@ -51,7 +40,7 @@ public class GestionBicicletas {
             int stock = scanner.nextInt();
             scanner.nextLine();
 
-            Bicicleta nuevaBicicleta = new Bicicleta(referencia, marca, modelo, peso, tamañoRuedas, tieneMotor, fechaFabricacion, precio, stock);
+            Bicicleta nuevaBicicleta = new Bicicleta(referencia, marca, modelo, peso, tamanyoRuedas, tieneMotor, fechaFabricacion, precio, stock);
             bicicletas.add(nuevaBicicleta);
             System.out.println("Bicicleta añadida correctamente.");
         }
@@ -65,7 +54,7 @@ public class GestionBicicletas {
 
     public void venderBicicleta(Scanner scanner) {
         System.out.println("Vender bicicleta");
-        System.out.print("Introduzca la referencia de la bicicleta: ");
+        System.out.print("Dime la referencia de la bicicleta: ");
         String referencia = scanner.nextLine();
 
         Bicicleta bicicletaAVender = buscarBicicletaPorReferencia(referencia);
@@ -81,42 +70,8 @@ public class GestionBicicletas {
         }
     }
 
-    public void consultarBicicleta(Scanner scanner) {
-        System.out.println("***********************");
-        System.out.println("** CONSULTA BICICLETA **");
-        System.out.println("***********************");
-        System.out.println("1.- Consultar por referencia ...");
-        System.out.println("2.- Consultar por marca ...");
-        System.out.println("3.- Consultar por modelo ...");
-        System.out.println("---------------------------------");
-        System.out.println("0.- Volver al menú principal");
-
-        int opcionConsulta;
-        do {
-            opcionConsulta = scanner.nextInt();
-            scanner.nextLine();
-
-            switch (opcionConsulta) {
-                case 1:
-                    consultarPorReferencia(scanner);
-                    break;
-                case 2:
-                    consultarPorMarca(scanner);
-                    break;
-                case 3:
-                    consultarPorModelo(scanner);
-                    break;
-                case 0:
-                    System.out.println("Volviendo al menú principal.");
-                    break;
-                default:
-                    System.out.println("Opción inválida. Intente de nuevo.");
-            }
-        } while (opcionConsulta != 0);
-    }
-
     public void consultarPorReferencia(Scanner scanner) {
-        System.out.print("Introduzca la referencia: ");
+        System.out.print("Dime la referencia: ");
         String referencia = scanner.nextLine();
 
         Bicicleta bicicletaEncontrada = buscarBicicletaPorReferencia(referencia);
@@ -143,7 +98,7 @@ public class GestionBicicletas {
     }
 
     public void consultarPorModelo(Scanner scanner) {
-        System.out.print("Introduzca el modelo: ");
+        System.out.print("Dime el modelo: ");
         String modelo = scanner.nextLine();
 
         ArrayList<Bicicleta> bicicletasEncontradas = buscarBicicletasPorModelo(modelo);

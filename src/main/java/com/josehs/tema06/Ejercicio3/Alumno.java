@@ -3,12 +3,12 @@ package com.josehs.tema06.Ejercicio3;
 import java.time.LocalDate;
 
 public class Alumno {
-    private int nia;
-    private String nombre;
-    private String apellidos;
-    private LocalDate fechaNacimiento;
-    private String grupo;
-    private String telefono;
+    private final int nia;
+    private final String nombre;
+    private final String apellidos;
+    private final LocalDate fechaNacimiento;
+    private final String grupo;
+    private final String telefono;
 
     /**
      *

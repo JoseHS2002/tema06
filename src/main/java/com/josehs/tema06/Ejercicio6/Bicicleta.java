@@ -3,14 +3,14 @@ package com.josehs.tema06.Ejercicio6;
 import java.time.LocalDate;
 
 public class Bicicleta {
-    private String referencia;
-    private String marca;
-    private String modelo;
-    private double peso;
+    private final String referencia;
+    private final String marca;
+    private final String modelo;
+    private final double peso;
     private int tamanyoRuedas;
-    private boolean tieneMotor;
-    private LocalDate fechaFabricacion;
-    private double precio;
+    private final boolean tieneMotor;
+    private final LocalDate fechaFabricacion;
+    private final double precio;
     private int stock;
 
     /**

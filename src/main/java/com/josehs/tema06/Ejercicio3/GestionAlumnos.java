@@ -45,18 +45,6 @@ public class GestionAlumnos {
         } while (opcion != 0);
     }
 
-    private void mostrarMenu() {
-        System.out.println("*********************");
-        System.out.println("** GESTIÓN ALUMNOS **");
-        System.out.println("*********************");
-        System.out.println("1. Nuevo alumno ...");
-        System.out.println("2. Baja de alumno ...");
-        System.out.println("3. Consultas ...");
-        System.out.println("------------------------------");
-        System.out.println("0. Salir");
-    }
-
-
     private void nuevoAlumno(Scanner scanner) {
         System.out.println("Nuevo Alumno");
         System.out.print("NIA: ");

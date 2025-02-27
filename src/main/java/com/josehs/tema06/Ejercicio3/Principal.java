@@ -2,6 +2,7 @@ package com.josehs.tema06.Ejercicio3;
 
 
 public class Principal {
+    /*
     public static void main(String[] args) {
         GestionAlumnos gestionAlumnos = new GestionAlumnos();
         gestionAlumnos.menu();
@@ -30,6 +31,5 @@ public class Principal {
         System.out.println("0. Volver al menú principal");
     }
 
-
-
+     */
 }

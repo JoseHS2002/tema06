@@ -1,12 +1,14 @@
 package com.josehs.tema06.Ejercicio6;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Scanner;
+//import java.time.LocalDate;
+//import java.util.ArrayList;
+//import java.util.Scanner;
+//import java.util.Scanner;
 
 public class GestionBicicletas {
-
-    private ArrayList<Bicicleta> bicicletas = new ArrayList<>();
+    /*
+    public static Scanner scanner = new Scanner(System.in);
+    private ArrayList<Bicicleta> bicicletas;
 
     public void anyadirBicicleta(Scanner scanner) {
         System.out.println("Añadir bicicleta");
@@ -51,7 +53,7 @@ public class GestionBicicletas {
         bicicletas.add(nuevaBicicleta);
     }
 
-    public void venderBicicleta(Scanner scanner) {
+    public void venderBicicleta() {
         System.out.println("Vender bicicleta");
         System.out.print("Dime la referencia de la bicicleta: ");
         String referencia = scanner.nextLine();
@@ -69,7 +71,7 @@ public class GestionBicicletas {
         }
     }
 
-    public void consultarReferencia(Scanner scanner) {
+    public static void consultarReferencia() {
         System.out.print("Dime la referencia: ");
         String referencia = scanner.nextLine();
 
@@ -81,8 +83,8 @@ public class GestionBicicletas {
         }
     }
 
-    public void consultarMarca(Scanner scanner) {
-        System.out.print("Introduzca la marca: ");
+    public void consultarMarca() {
+        System.out.print("Dime la marca: ");
         String marca = scanner.nextLine();
 
         ArrayList<Bicicleta> bicicletasEncontradas = buscarMarcaBicicleta(marca);
@@ -96,7 +98,7 @@ public class GestionBicicletas {
         }
     }
 
-    public void consultarModelo(Scanner scanner) {
+    public void consultarModelo() {
         System.out.print("Dime el modelo: ");
         String modelo = scanner.nextLine();
 
@@ -150,4 +152,5 @@ public class GestionBicicletas {
         }
         return bicicletasEncontradas;
     }
+     */
 }
